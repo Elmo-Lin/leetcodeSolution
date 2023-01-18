@@ -1,7 +1,7 @@
 class Solution:
     def maxSubarraySumCircular(self, nums: List[int]) -> int:
         
-        mx, curMx, mn, curMn = -inf, 0, 0, inf
+        mx, curMx, mn, curMn = -inf, 0, inf, 0
         
         for num in nums:       
                                                     
@@ -15,5 +15,8 @@ class Solution:
             
             mn = min(mn, curMn)
             curMn = min(0, curMn)
+            
+        if mx<0:
+            return mx
             
         return max(mx, sum(nums)-mn)
