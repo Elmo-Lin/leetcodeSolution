@@ -16,7 +16,7 @@ class Solution:
             mn = min(mn, curMn)
             curMn = min(0, curMn)
             
-        if mx<0:
+        if mx<=0:
             return mx
             
         return max(mx, sum(nums)-mn)
