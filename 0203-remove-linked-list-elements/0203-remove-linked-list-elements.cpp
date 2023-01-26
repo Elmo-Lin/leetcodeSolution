@@ -13,13 +13,13 @@ public:
     ListNode* removeElements(ListNode* head, int val) {
         ListNode dummy=ListNode(-1, head);          //假頭
         ListNode* curr=&dummy;
-        while(curr && curr->next){
+        while(curr and curr->next){
             if(curr->next->val==val){
-                ListNode* temp=curr->next;
-                curr->next=curr->next->next;
-                delete temp;
-            }
-            else{
+                ListNode* temp=curr->next->next;    //刪除節點前 要先保存到temp
+                delete curr->next;                  //避免memory leak
+                curr->next=temp;
+                
+            }else{
                 curr=curr->next;
             }
         }
