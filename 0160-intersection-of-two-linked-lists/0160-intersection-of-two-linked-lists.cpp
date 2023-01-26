@@ -9,16 +9,16 @@
 class Solution {
 public:
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
-        ListNode *a=headA;
-        ListNode *b=headB;
+        ListNode* a=headA;
+        ListNode* b=headB;
         while(a!=b){
-            if(a!=NULL){
+            if(a){
                 a=a->next;
             }
             else{
                 a=headB;
             }
-            if(b!=NULL){
+            if(b){
                 b=b->next;
             }
             else{
