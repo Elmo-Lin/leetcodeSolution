@@ -10,12 +10,12 @@ class Solution:
                 m[c]=1
         
         for count in m.values():
-            res += count
+            res+=count
             if count%2==1:
                 res-=1
                 flag=True
-
-        if flag:
+                
+        if flag==True:
             return res+1
         else:
             return res
