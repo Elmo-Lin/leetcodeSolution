@@ -9,7 +9,7 @@ public:
             if(nums[j]==0){
                 count++;
             }
-            while(count>k){
+            while(count==k+1){
                 if(nums[i]==0){
                     count--;
                 }
