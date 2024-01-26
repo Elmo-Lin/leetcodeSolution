@@ -11,8 +11,7 @@ public:
                 }
                 if(res.empty() || res.back()<0){
                     res.push_back(asteroids[i]);
-                }
-                else if(abs(asteroids[i])==abs(res.back())){
+                }else if(abs(asteroids[i])==res.back()){
                     res.pop_back();
                 }
             }
