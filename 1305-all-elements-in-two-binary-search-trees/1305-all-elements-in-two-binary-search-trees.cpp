@@ -12,10 +12,11 @@
 class Solution {
 public:
     vector<int> getAllElements(TreeNode* root1, TreeNode* root2) {
-        vector<int> res;
-        inorder(root1, res);
-        inorder(root2, res);
-        sort(res.begin(), res.end());
+        vector<int> arr1, arr2;
+        inorder(root1, arr1);
+        inorder(root2, arr2);
+        vector<int> res(arr1.size() + arr2.size());
+        merge(arr1.begin(), arr1.end(), arr2.begin(), arr2.end(), res.begin());
         return res;
     }
     void inorder(TreeNode* root, vector<int>& res){
