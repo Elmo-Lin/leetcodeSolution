@@ -17,20 +17,20 @@ public:
         helper(root, true, st, res);
         return res;
     }
-    TreeNode* helper(TreeNode* node, bool is_root, unordered_set<int>& st, vector<TreeNode*>& res) {
-        if(!node){
+    TreeNode* helper(TreeNode* root, bool is_root, unordered_set<int>& st, vector<TreeNode*>& res){
+        if(!root){
             return nullptr;
         }
-        bool deleted=st.count(node->val);
+        bool deleted=st.count(root->val);
         if(is_root && !deleted){
-            res.push_back(node);
+            res.push_back(root);
         }
-        node->left=helper(node->left, deleted, st, res);
-        node->right=helper(node->right, deleted, st, res);
+        root->left=helper(root->left, deleted, st, res);
+        root->right=helper(root->right, deleted, st, res);
         if(deleted){
             return nullptr;
         }else{
-            return node;
+            return root;
         }
     }
 };
