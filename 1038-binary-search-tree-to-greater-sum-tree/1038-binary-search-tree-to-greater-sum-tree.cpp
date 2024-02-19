@@ -16,13 +16,13 @@ public:
         helper(root, cur);
         return root;
     }
-    void helper(TreeNode*& root, int& cur){
+    void helper(TreeNode* root, int& cur){
         if(!root){
             return;
         }
         helper(root->right, cur);
-        root->val+=cur;
-        cur=root->val;
+        cur+=root->val;
+        root->val=cur;
         helper(root->left, cur);
     }
 };
