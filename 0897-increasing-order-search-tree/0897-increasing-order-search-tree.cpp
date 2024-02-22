@@ -13,7 +13,7 @@ class Solution {
 public:
     TreeNode* increasingBST(TreeNode* root) {
         vector<int> res;
-        helper(root, res);
+        inorder(root, res);
         TreeNode* dummy=new TreeNode(0);
         TreeNode* cur=dummy;
         for(int i=0; i<res.size(); i++){
@@ -22,12 +22,12 @@ public:
         }
         return dummy->right;
     }
-    void helper(TreeNode* root, vector<int>& res){
+    void inorder(TreeNode* root, vector<int>& res){
         if(!root){
             return;
         }
-        helper(root->left, res);
+        inorder(root->left, res);
         res.push_back(root->val);
-        helper(root->right, res);
+        inorder(root->right, res);
     }
 };
