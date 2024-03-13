@@ -14,13 +14,13 @@ public:
     int getMinimumDifference(TreeNode* root) {
         vector<int> res;
         inorder(root, res);
-        int min=res[1]-res[0];
-        for(int i=1; i<res.size()-1; i++){
-            if(abs(res[i+1]-res[i])<min){
-                min=res[i+1]-res[i];
+        int mn=INT_MAX;
+        for(int i=0; i<res.size()-1; i++){
+            if(res[i+1]-res[i]<mn){
+                mn=res[i+1]-res[i];
             }
         }
-        return min;
+        return mn;
     }
     void inorder(TreeNode* root, vector<int>& res){
         if(!root){
