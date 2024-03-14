@@ -7,7 +7,7 @@ public:
         int i=0;
         int n=pattern.size();
         for(string word; in>>word; i++){
-            if(i==n||m1[pattern[i]]!=m2[word]){
+            if(i==n || m1[pattern[i]]!=m2[word]){
                 return false;
             }
             m1[pattern[i]]=m2[word]=i+1;
