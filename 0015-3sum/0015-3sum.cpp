@@ -14,7 +14,7 @@ public:
             int i=k+1;
             int j=nums.size()-1;
             while(i<j){
-                if(nums[i]+nums[j]==target){
+                if(target==nums[i]+nums[j]){
                     res.push_back({nums[k], nums[i], nums[j]});
                     while(i<j && nums[i]==nums[i+1]){
                         i++;
@@ -24,7 +24,7 @@ public:
                     }
                     i++;
                     j--;
-                }else if(nums[i]+nums[j]<target){
+                }else if(target>nums[i]+nums[j]){
                     i++;
                 }else{
                     j--;
