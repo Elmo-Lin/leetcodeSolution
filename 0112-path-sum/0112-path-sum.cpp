@@ -12,28 +12,21 @@
 class Solution {
 public:
     bool hasPathSum(TreeNode* root, int targetSum) {
+        vector<vector<int>> res;
+        vector<int> cur;
+        dfs(root, targetSum, cur, res);
+        return res.size()!=0;
+    }
+    void dfs(TreeNode* root, int targetSum, vector<int> cur, vector<vector<int>>& res){
         if(!root){
-            return false;
+            return;
         }
-        queue<TreeNode*> q{{root}};
-        while(!q.empty()){
-            int size=q.size();
-            for(int i=0; i<size; i++){
-                TreeNode* cur=q.front();
-                q.pop();
-                if(!cur->left && !cur->right && cur->val==targetSum){
-                    return true;
-                }
-                if(cur->left){
-                    cur->left->val+=cur->val;
-                    q.push(cur->left);
-                }
-                if(cur->right){
-                    cur->right->val+=cur->val;
-                    q.push(cur->right);
-                }
-            }
+        cur.push_back(root->val);
+        if(targetSum==root->val && !root->left && !root->right){
+            res.push_back(cur);
         }
-        return false;
+        dfs(root->left, targetSum-root->val, cur, res);
+        dfs(root->right, targetSum-root->val, cur, res);
+        cur.pop_back();
     }
 };
