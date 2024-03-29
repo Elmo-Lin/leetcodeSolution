@@ -8,18 +8,18 @@
  * };
  */
 class Solution {
-    TreeNode* res=nullptr;
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        dfs(root, p, q);
+        TreeNode* res=nullptr;
+        dfs(root, p, q, res);
         return res;
     }
-    int dfs(TreeNode* root, TreeNode* p, TreeNode* q){
-        if(!root){        
+    int dfs(TreeNode* root, TreeNode* p, TreeNode* q, TreeNode*& res){
+        if(!root){
             return 0;
         }
-        int left=dfs(root->left, p, q);
-        int right=dfs(root->right, p, q);
+        int left=dfs(root->left, p, q, res);
+        int right=dfs(root->right, p, q, res);
         int self=(root==p || root==q);
         int count=self+left+right;
         if(count==2 && res==nullptr){
