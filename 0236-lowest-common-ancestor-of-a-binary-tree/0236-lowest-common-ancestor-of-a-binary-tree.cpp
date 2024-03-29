@@ -10,21 +10,17 @@
 class Solution {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
-        TreeNode* res=nullptr;
-        dfs(root, p, q, res);
-        return res;
-    }
-    int dfs(TreeNode* root, TreeNode* p, TreeNode* q, TreeNode*& res){
         if(!root){
-            return 0;
+            return nullptr;
         }
-        int left=dfs(root->left, p, q, res);
-        int right=dfs(root->right, p, q, res);
-        int self=(root==p || root==q);
-        int count=self+left+right;
-        if(count==2 && res==nullptr){
-            res=root;
+        if(root==p || root==q){
+            return root;
         }
-        return count;
+        TreeNode* left=lowestCommonAncestor(root->left, p, q);
+        TreeNode* right=lowestCommonAncestor(root->right, p, q);
+        if(left && right){
+            return root;
+        }
+        return left ? left : right;
     }
 };
