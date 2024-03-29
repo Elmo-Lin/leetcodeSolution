@@ -17,7 +17,7 @@ public:
         dfs(root, targetSum, cur, res);
         return res;
     }
-    void dfs(TreeNode* root, int targetSum, vector<int>& cur, int& res){
+    void dfs(TreeNode* root, int targetSum, vector<int> cur, int& res){
         if(!root){
             return;
         }
