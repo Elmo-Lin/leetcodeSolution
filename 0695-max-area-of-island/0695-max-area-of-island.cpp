@@ -4,13 +4,13 @@ public:
         int m=grid.size();
         int n=grid[0].size();
         int res=0;
+        int count=0;
         for(int i=0; i<m; i++){
             for(int j=0; j<n; j++){
-                if(grid[i][j]==0){
-                    continue;
+                if(grid[i][j]==1){
+                    count=0;
+                    helper(grid, i, j, count, res);
                 }
-                int count=0;
-                helper(grid, i, j, count, res);
             }
         }
         return res;
@@ -18,12 +18,12 @@ public:
     void helper(vector<vector<int>>& grid, int i, int j, int& count, int& res){
         int m=grid.size();
         int n=grid[0].size();
-        if(i<0 || i>=m || j<0 || j>=n || grid[i][j]!=1){
+        if(i<0 || i>=m || j<0 || j>=n || grid[i][j]==0){
             return;
         }
         count++;
         res=max(res, count);
-        grid[i][j]=-1;
+        grid[i][j]=0;
         helper(grid, i+1, j, count, res);
         helper(grid, i, j+1, count, res);
         helper(grid, i-1, j, count, res);
