@@ -1,7 +1,7 @@
 class MinStack {
 public:
     MinStack() {
-        min_val=INT_MAX;
+         min_val=INT_MAX;   
     }
     
     void push(int val) {
@@ -19,7 +19,6 @@ public:
             min_val=st.top();
             st.pop();
         }
-        
     }
     
     int top() {
