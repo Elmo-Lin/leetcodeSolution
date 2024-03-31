@@ -15,15 +15,20 @@ public:
         if(!root){
             return true;
         }
-        if(abs(getDepth(root->left)-getDepth(root->right))>1){
+        int left=getDepth(root->left);
+        int right=getDepth(root->right);
+        if(abs(left-right)>1){
             return false;
         }
         return isBalanced(root->left) && isBalanced(root->right);
     }
     int getDepth(TreeNode* root){
-        if(root==NULL){
+        if(!root){
             return 0;
         }
-        return max(getDepth(root->left), getDepth(root->right))+1;
+        int left=getDepth(root->left);
+        int right=getDepth(root->right);
+        return max(left, right)+1;
     }
 };
+
