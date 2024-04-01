@@ -1,8 +1,8 @@
 class Solution {
 public:
     string minWindow(string s, string t) {
-        vector<int> m(128);
-        int left=0, count=0, minLeft=-1, minLen=INT_MAX;
+        unordered_map<char, int> m;
+        int left=0, minLeft=-1, minLen=INT_MAX, count=0;
         for(char c : t){
             m[c]++;
         }
