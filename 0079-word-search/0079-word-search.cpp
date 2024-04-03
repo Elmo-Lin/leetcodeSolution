@@ -11,7 +11,7 @@ public:
             for(int j=0; j<n; j++){
                 if(search(board, word, 0, i, j, visited)){
                     return true;
-                }        
+                }
             }
         }
         return false;
@@ -22,7 +22,7 @@ public:
         }
         int m=board.size();
         int n=board[0].size();
-        if(i<0 || i>=m || j<0 || j>=n || visited[i][j] || word[idx]!=board[i][j]){
+        if(i<0 || i>=m || j<0 || j>=n || visited[i][j]==true || word[idx]!=board[i][j]){
             return false;
         }
         visited[i][j]=true;
