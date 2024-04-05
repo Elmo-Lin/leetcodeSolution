@@ -19,9 +19,6 @@ public:
         priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
         for(auto id : friends[userId]){
             for(auto a : tweets[id]){
-                if(pq.size()>0 && pq.top().first>a.first && pq.size()>10){
-                    break;
-                }
                 pq.push(a);
                 if(pq.size()>10){
                     pq.pop();
