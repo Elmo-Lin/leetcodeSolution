@@ -1,20 +1,17 @@
 class Solution {
 public:
     bool wordBreak(string s, vector<string>& wordDict) {
-        int n=s.size();
-        set<string> dict(wordDict.begin(), wordDict.end());
-        vector<bool> dp(n+1, false);
+        unordered_set<string> wordSet(wordDict.begin(), wordDict.end());
+        vector<bool> dp(s.size()+1);
         dp[0]=true;
-        
-        for(int i=1; i<=n; i++){
+        for(int i=0; i<dp.size(); i++){
             for(int j=0; j<i; j++){
-                if(dp[j] && dict.find(s.substr(j, i-j))!=dict.end()){
+                if(dp[j] && wordSet.count(s.substr(j, i-j))){
                     dp[i]=true;
                     break;
                 }
             }
         }
-        
-        return dp[n];
+        return dp.back();
     }
 };
