@@ -4,7 +4,7 @@ public:
         int res=0;
         int maxCount=0;
         int start=0;
-        unordered_map<char, int> m;
+        unordered_map<int, int> m;
         for(int i=0; i<s.size(); i++){
             m[s[i]]++;
             maxCount=max(maxCount, m[s[i]]);
