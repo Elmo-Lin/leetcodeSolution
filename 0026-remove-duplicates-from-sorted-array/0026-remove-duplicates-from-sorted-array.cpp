@@ -4,14 +4,13 @@ public:
         int i=0;
         int j=0;
         while(j<nums.size()){
-            if(i==0 || nums[i-1]!=nums[j]){
-                nums[i]=nums[j];
-                i++;
+            if(nums[i]==nums[j]){
                 j++;
             }else{
-                j++;
+                i++;
+                nums[i]=nums[j];
             }
         }
-        return i;
+        return i+1;
     }
 };
