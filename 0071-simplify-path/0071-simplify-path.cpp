@@ -7,7 +7,7 @@ public:
             if(path[i]=='/'){
                 continue;
             }
-            string temp="";
+            string temp;
             while(i<path.size() && path[i]!='/'){
                 temp+=path[i];
                 i++;
@@ -27,8 +27,9 @@ public:
             st.pop();
         }
         if(res.size()==0){
-            res="/";
+            return "/";
+        }else{
+            return res;
         }
-        return res;
     }
 };
