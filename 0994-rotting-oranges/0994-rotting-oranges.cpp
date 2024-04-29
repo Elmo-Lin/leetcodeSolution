@@ -6,7 +6,7 @@ public:
         int res=0;
         int count=0;
         queue<vector<int>> q;
-        vector<vector<int>> dirs{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+        vector<vector<int>> dirs{{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
         for(int i=0; i<m; i++){
             for(int j=0; j<n; j++){
                 if(grid[i][j]==1){
