@@ -1,8 +1,8 @@
 class Solution {
 public:
     bool isIsomorphic(string s, string t) {
-        map<char, int> m;
-        map<char, int> n;
+        unordered_map<char, int> m;
+        unordered_map<char, int> n;
         for(int i=0; i<s.size(); i++){
             if(m[s[i]]!=n[t[i]]){
                 return false;
