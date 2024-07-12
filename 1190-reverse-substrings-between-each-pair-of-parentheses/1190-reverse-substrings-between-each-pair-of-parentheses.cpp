@@ -6,9 +6,8 @@ public:
             if(s[i]=='('){
                 st.push(i);
             }else if(s[i]==')'){
-                int start=st.top();
+                reverse(s.begin()+st.top()+1, s.begin()+i);
                 st.pop();
-                reverse(s.begin()+start+1, s.begin()+i);
             }
         }
         string res;
