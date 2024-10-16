@@ -34,3 +34,6 @@ public:
         return res;
     }
 };
+
+// n=3
+// 3 3
