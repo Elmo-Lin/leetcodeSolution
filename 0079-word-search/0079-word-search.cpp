@@ -26,9 +26,9 @@ public:
             return false;
         }
         visited[i][j]=true;
-        bool res=dfs(board, word, idx+1, i+1, j, visited) || 
-                 dfs(board, word, idx+1, i, j+1, visited) || 
-                 dfs(board, word, idx+1, i-1, j, visited) || 
+        bool res=dfs(board, word, idx+1, i+1, j, visited) ||
+                 dfs(board, word, idx+1, i, j+1, visited) ||
+                 dfs(board, word, idx+1, i-1, j, visited) ||
                  dfs(board, word, idx+1, i, j-1, visited);
         visited[i][j]=false;
         return res;
