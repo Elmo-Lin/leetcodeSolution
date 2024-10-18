@@ -5,7 +5,7 @@ public:
         int prod=1;
         for(int i=1; i<nums.size(); i++){
             prod=prod*nums[i-1];
-            res[i]=prod;
+            res[i]=res[i]*prod;
         }
         prod=1;
         for(int i=nums.size()-2; i>=0; i--){
