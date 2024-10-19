@@ -1,24 +1,33 @@
-<h2><a href="https://leetcode.com/problems/surrounded-regions/">130. Surrounded Regions</a></h2><h3>Medium</h3><hr><div><p>Given an <code>m x n</code> matrix <code>board</code> containing <code>'X'</code> and <code>'O'</code>, <em>capture all regions that are 4-directionally&nbsp;surrounded by</em> <code>'X'</code>.</p>
+<h2><a href="https://leetcode.com/problems/surrounded-regions/">130. Surrounded Regions</a></h2><h3>Medium</h3><hr><div><p>You are given an <code>m x n</code> matrix <code>board</code> containing <strong>letters</strong> <code>'X'</code> and <code>'O'</code>, <strong>capture regions</strong> that are <strong>surrounded</strong>:</p>
 
-<p>A region is <strong>captured</strong> by flipping all <code>'O'</code>s into <code>'X'</code>s in that surrounded region.</p>
+<ul>
+	<li><strong>Connect</strong>: A cell is connected to adjacent cells horizontally or vertically.</li>
+	<li><strong>Region</strong>: To form a region <strong>connect every</strong> <code>'O'</code> cell.</li>
+	<li><strong>Surround</strong>: The region is surrounded with <code>'X'</code> cells if you can <strong>connect the region </strong>with <code>'X'</code> cells and none of the region cells are on the edge of the <code>board</code>.</li>
+</ul>
+
+<p>A <strong>surrounded region is captured</strong> by replacing all <code>'O'</code>s with <code>'X'</code>s in the input matrix <code>board</code>.</p>
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<img alt="" src="https://assets.leetcode.com/uploads/2021/02/19/xogrid.jpg" style="width: 550px; height: 237px;">
-<pre><strong>Input:</strong> board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
-<strong>Output:</strong> [["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]
-<strong>Explanation:</strong> Notice that an 'O' should not be flipped if:
-- It is on the border, or
-- It is adjacent to an 'O' that should not be flipped.
-The bottom 'O' is on the border, so it is not flipped.
-The other three 'O' form a surrounded region, so they are flipped.
-</pre>
+
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]</span></p>
+
+<p><strong>Explanation:</strong></p>
+<img alt="" src="https://assets.leetcode.com/uploads/2021/02/19/xogrid.jpg" style="width: 367px; height: 158px;">
+<p>In the above diagram, the bottom region is not captured because it is on the edge of the board and cannot be surrounded.</p>
+</div>
 
 <p><strong class="example">Example 2:</strong></p>
 
-<pre><strong>Input:</strong> board = [["X"]]
-<strong>Output:</strong> [["X"]]
-</pre>
+<div class="example-block">
+<p><strong>Input:</strong> <span class="example-io">board = [["X"]]</span></p>
+
+<p><strong>Output:</strong> <span class="example-io">[["X"]]</span></p>
+</div>
 
 <p>&nbsp;</p>
 <p><strong>Constraints:</strong></p>
