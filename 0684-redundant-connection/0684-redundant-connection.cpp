@@ -25,7 +25,7 @@ public:
         }
         return father[x];
     }
-    void unionFind(int x, int y) {
+    void unionFind(int x, int y){
         x=father[x];
         y=father[y];
         if(x<y){
