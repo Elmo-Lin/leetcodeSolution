@@ -25,7 +25,6 @@ public:
             left.pop();
             star.pop();
         }
-        
         return left.empty();
     }
 };
