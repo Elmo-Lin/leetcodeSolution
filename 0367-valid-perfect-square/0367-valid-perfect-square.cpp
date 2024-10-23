@@ -3,21 +3,15 @@ public:
     bool isPerfectSquare(int num) {
         long left=1;
         long right=num;
-        while(left+1<right){
+        while(left<=right){
             long mid=left+(right-left)/2;
             if(mid*mid==num){
                 return true;
             }else if(mid*mid<num){
-                left=mid;
+                left=mid+1;
             }else{
-                right=mid;
+                right=mid-1;
             }
-        }
-        if(left*left==num){
-            return true;
-        }
-        if(right*right==num){
-            return true;
         }
         return false;
     }
